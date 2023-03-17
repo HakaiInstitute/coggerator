@@ -28,6 +28,8 @@ jobs:
           activate-environment: cog
           environment-file: environment.yml
           auto-activate-base: false
+      - name: Update pkg_config_path
+        run: export PKG_CONFIG_PATH=$CONDA/envs/cog/lib/pkgconfig
       - name: Install frontend dependencies
         run: yarn install
       - uses: tauri-apps/tauri-action@v0
