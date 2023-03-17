@@ -25,11 +25,10 @@ jobs:
       - name: Install GDAL
         uses: conda-incubator/setup-miniconda@v2
         with:
-          activate-environment: cog
           environment-file: environment.yml
           auto-activate-base: false
       - name: Update pkg_config_path
-        run: export PKG_CONFIG_PATH=$CONDA/envs/cog/lib/pkgconfig
+        run: echo "PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$CONDA/envs/cog/lib/pkgconfig/" >> $GITHUB_ENV
       - name: Install frontend dependencies
         run: yarn install
       - uses: tauri-apps/tauri-action@v0
