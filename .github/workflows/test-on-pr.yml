@@ -30,6 +30,7 @@ jobs:
           auto-activate-base: false
       - name: Install GDAL (windows only)
         if: matrix.platform == 'windows-2019'
+        shell: bash
         run: |
           curl -S -O https://download.gisinternals.com/sdk/downloads/release-1928-x64-dev.zip
           7z x -aoa release-1928-x64-dev.zip
