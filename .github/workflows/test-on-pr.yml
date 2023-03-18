@@ -17,6 +17,11 @@ jobs:
           node-version: 16
       - name: Install Yarn
         run: npm install -g yarn
+      - name: Setup Nodejs with yarn caching
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: yarn
       - name: Install Rust stable
         uses: dtolnay/rust-toolchain@stable
       - name: Install dependencies (ubuntu only)
