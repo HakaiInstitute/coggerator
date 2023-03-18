@@ -38,20 +38,24 @@ jobs:
           cargo -V
           vswhere
           
-          echo "GDAL_HOME=$PWD/release-1928-x64" >> $GITHUB_ENV
-          echo "PROJ_LIB=$GDAL_HOME/bin/proj7/share" >> $GITHUB_ENV
-          echo $GDAL_HOME/bin/gdal/apps >> $GITHUB_PATH
-          echo $GDAL_HOME/bin >> $GITHUB_PATH
+          export GDAL_HOME=$PWD/release-1928-x64
+          export PROJ_LIB=$GDAL_HOME/bin/proj7/share
+          export PATH=$GDAL_HOME/bin:$GDAL_HOME/bin/gdal/apps:$PATH
           # Workaround for https://github.com/actions/virtual-environments/issues/3316
-          echo /c/msys64/mingw64/bin >> $GITHUB_PATH
+          export PATH=/c/msys64/mingw64/bin:$PATH
           
           gdalinfo --version
-          echo "GDAL_VERSION=$(gdalinfo --version | sed 's/GDAL \(.*\), .*/\1/')" >> $GITHUB_ENV
+          export GDAL_VERSION=$(gdalinfo --version | sed 's/GDAL \(.*\), .*/\1/')
+          
+          echo "GDAL_HOME=$GDAL_HOME" >> $GITHUB_ENV
+          echo "PROJ_LIB=$PROJ_LIB" >> $GITHUB_ENV
+          echo $PATH >> $GITHUB_PATH
+          echo "GDAL_VERSION=$GDAL_VERSION" >> $GITHUB_ENV
       - name: Update pkg_config_path
         if: matrix.platform != 'windows-2019'
         run: echo "PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$CONDA/envs/cog/lib/pkgconfig/" >> $GITHUB_ENV
       - name: Install frontend dependencies
-        run: yarn install
+        run: npm install
       - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
