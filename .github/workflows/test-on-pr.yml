@@ -34,13 +34,13 @@ jobs:
         if: matrix.platform == 'windows-2019'
         shell: bash
         run: |
-          curl -S -O https://build2.gisinternals.com/sdk/downloads/release-1928-x64-gdal-3-5-2-mapserver-8-0-0.zip
-          7z x -aoa release-1928-x64-gdal-3-5-2-mapserver-8-0-0.zip
+          curl -S -O https://download.gisinternals.com/sdk/downloads/release-1928-x64-dev.zip
+          7z x -aoa release-1928-x64-dev.zip
           rustc -Vv
           cargo -V
           vswhere
           
-          export GDAL_HOME=$PWD/release-1928-x64-gdal-3-5-2-mapserver-8-0-0
+          export GDAL_HOME=$PWD/release-1928-x64
           export PROJ_LIB=$GDAL_HOME/bin/proj7/share
           export PATH=$GDAL_HOME/bin:$GDAL_HOME/bin/gdal/apps:$PATH
           # Workaround for https://github.com/actions/virtual-environments/issues/3316
