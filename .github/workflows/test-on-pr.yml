@@ -15,13 +15,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Install Yarn
-        run: npm install -g yarn
-      - name: Setup Nodejs with yarn caching
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-          cache: yarn
       - name: Install Rust stable
         uses: dtolnay/rust-toolchain@stable
       - name: Install dependencies (ubuntu only)
@@ -45,19 +38,15 @@ jobs:
           cargo -V
           vswhere
           
-          export GDAL_HOME=$PWD/release-1928-x64
-          export PROJ_LIB=$GDAL_HOME/bin/proj7/share
-          export PATH=$GDAL_HOME/bin:$GDAL_HOME/bin/gdal/apps:$PATH
+          echo "GDAL_HOME=$PWD/release-1928-x64" >> $GITHUB_ENV
+          echo "PROJ_LIB=$GDAL_HOME/bin/proj7/share" >> $GITHUB_ENV
+          echo $GDAL_HOME/bin/gdal/apps >> $GITHUB_PATH
+          echo $GDAL_HOME/bin >> $GITHUB_PATH
           # Workaround for https://github.com/actions/virtual-environments/issues/3316
-          export PATH=/c/msys64/mingw64/bin:$PATH
+          echo /c/msys64/mingw64/bin >> $GITHUB_PATH
           
           gdalinfo --version
-          export GDAL_VERSION=$(gdalinfo --version | sed 's/GDAL \(.*\), .*/\1/')
-          
-          echo "GDAL_HOME=$GDAL_HOME" >> $GITHUB_ENV
-          echo "PROJ_LIB=$PROJ_LIB" >> $GITHUB_ENV
-          echo "PATH=$PATH" >> $GITHUB_ENV
-          echo "GDAL_VERSION=$GDAL_VERSION" >> $GITHUB_ENV
+          echo "GDAL_VERSION=$(gdalinfo --version | sed 's/GDAL \(.*\), .*/\1/')" >> $GITHUB_ENV
       - name: Update pkg_config_path
         if: matrix.platform != 'windows-2019'
         run: echo "PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$CONDA/envs/cog/lib/pkgconfig/" >> $GITHUB_ENV
