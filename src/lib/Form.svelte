@@ -1,6 +1,6 @@
 <script lang="ts">
     import {open, save} from "@tauri-apps/api/dialog"
-    import {homeDir} from "@tauri-apps/api/path";
+    import {homeDir, sep} from "@tauri-apps/api/path";
     import {
         isPermissionGranted,
         requestPermission,
@@ -61,9 +61,9 @@
     $: {
         if (outputPath === null && inputPath) {
             // If inputPath is defined, and outputPath is not, then append "_cog.tif" to the input path.
-            const inputDir = inputPath.split("/").slice(0, -1).join("/");
-            const fname = inputPath.split("/").pop().split(".").slice(0, -1);
-            outputPath = `${inputDir}/${fname}_cog.tif`
+            const inputDir = inputPath.split(sep).slice(0, -1).join(sep);
+            const fname = inputPath.split(sep).pop().split(".").slice(0, -1);
+            outputPath = `${inputDir}${sep}${fname}_cog.tif`
         }
     }
 
