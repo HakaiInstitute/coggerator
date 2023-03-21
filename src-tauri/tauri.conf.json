@@ -37,7 +37,10 @@
         "icons/icon.ico"
       ],
       "identifier": "com.coggerator.dev",
-      "targets": "all"
+      "targets": "all",
+      "resources": [
+        "./*.dll"
+      ]
     },
     "security": {
       "csp": null
