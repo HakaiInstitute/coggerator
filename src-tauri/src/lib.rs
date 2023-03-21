@@ -3,7 +3,7 @@ use std::path::PathBuf;
 use gdal::raster;
 
 pub use errors::CoggeratorError;
-pub use options::{BigTiffOption, CompressionOption, ResamplingOption, OverviewsOption};
+pub use options::{BigTiffOption, CompressionOption, OverviewsOption, ResamplingOption};
 
 mod errors;
 mod options;
@@ -28,24 +28,46 @@ impl Args {
         resampling: Option<&str>,
         overviews: Option<&str>,
     ) -> Result<Self, CoggeratorError> {
+        let input_exists = input_path.try_exists()?;
+        if !input_exists {
+            return Err(CoggeratorError::PathError(format!(
+                "Input path does not exist: {}",
+                input_path.to_string_lossy()
+            )));
+        }
+        let output_path_parent = match output_path.parent() {
+            Some(p) => p.to_path_buf(),
+            None => {
+                return Err(CoggeratorError::PathError(String::from(
+                    "Output path has no parent directory",
+                )));
+            }
+        };
+        let output_parent_exists = output_path_parent.try_exists()?;
+        if !output_parent_exists {
+            return Err(CoggeratorError::PathError(String::from(
+                "Output path parent does not exist",
+            )));
+        }
+
         let compression = match compression {
             Some(c) => options::CompressionOption::new(c),
-            None => Ok(options::CompressionOption::LZW,)
+            None => Ok(options::CompressionOption::LZW),
         }?;
 
         let big_tiff = match big_tiff {
             Some(b) => options::BigTiffOption::new(b),
-            None => Ok(options::BigTiffOption::IfNeeded)
+            None => Ok(options::BigTiffOption::IfNeeded),
         }?;
 
         let resampling = match resampling {
             Some(r) => ResamplingOption::new(r),
-            None => Ok(ResamplingOption::Cubic)
+            None => Ok(ResamplingOption::Cubic),
         }?;
 
         let overviews = match overviews {
             Some(o) => OverviewsOption::new(o),
-            None => Ok(OverviewsOption::IgnoreExisting)
+            None => Ok(OverviewsOption::IgnoreExisting),
         }?;
 
         Ok(Self {
@@ -68,19 +90,21 @@ pub fn convert_cog(args: Args) -> Result<PathBuf, CoggeratorError> {
 
     // options
     let options = [
-        raster::RasterCreationOption { key: "NUM_THREADS", value: "ALL_CPUS" },
-        raster::RasterCreationOption { key: "BLOCKSIZE", value: "512" },
+        raster::RasterCreationOption {
+            key: "NUM_THREADS",
+            value: "ALL_CPUS",
+        },
+        raster::RasterCreationOption {
+            key: "BLOCKSIZE",
+            value: "512",
+        },
         args.resampling.to_creation_option(),
         args.big_tiff.to_creation_option(),
         args.compression.to_creation_option(),
         args.overviews.to_creation_option(),
     ];
 
-    let cog: gdal::Dataset = dset.create_copy(
-        &driver,
-        &args.output_path,
-        &options,
-    )?;
+    let cog: gdal::Dataset = dset.create_copy(&driver, &args.output_path, &options)?;
 
     // Set nodata value
     let num_bands = cog.raster_count();
@@ -92,12 +116,11 @@ pub fn convert_cog(args: Args) -> Result<PathBuf, CoggeratorError> {
     Ok(args.output_path)
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
 
-// #[test]
+    // #[test]
     // fn test_args_from_input_path() {
     //     let input_path = PathBuf::from("/some/dir/test.tif");
     //     let args = Args::from_input_path(input_path).unwrap();

@@ -12,7 +12,7 @@ pub enum ResamplingOption {
 }
 
 impl ResamplingOption {
-     pub fn new(s: &str) -> Result<Self, CoggeratorError> {
+    pub fn new(s: &str) -> Result<Self, CoggeratorError> {
         match s {
             "NEAREST" => Ok(ResamplingOption::Nearest),
             "AVERAGE" => Ok(ResamplingOption::Average),
@@ -37,6 +37,9 @@ impl ResamplingOption {
             ResamplingOption::Mode => "MODE",
             ResamplingOption::RMS => "RMS",
         };
-        gdal::raster::RasterCreationOption { key: "RESAMPLING", value }
+        gdal::raster::RasterCreationOption {
+            key: "RESAMPLING",
+            value,
+        }
     }
 }

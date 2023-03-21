@@ -25,6 +25,9 @@ impl BigTiffOption {
             BigTiffOption::IfNeeded => "IfNeeded",
             BigTiffOption::IfSafer => "IfSafer",
         };
-        gdal::raster::RasterCreationOption { key: "COMPRESS", value }
+        gdal::raster::RasterCreationOption {
+            key: "COMPRESS",
+            value,
+        }
     }
 }

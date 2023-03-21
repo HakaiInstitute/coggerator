@@ -25,6 +25,9 @@ impl OverviewsOption {
             OverviewsOption::ForceUseExisting => "FORCE_USE_EXISTING",
             OverviewsOption::None => "NONE",
         };
-        gdal::raster::RasterCreationOption { key: "OVERVIEWS", value }
+        gdal::raster::RasterCreationOption {
+            key: "OVERVIEWS",
+            value,
+        }
     }
 }

@@ -1,9 +1,9 @@
-mod compression;
 mod big_tiff;
-mod resampling;
+mod compression;
 mod overviews;
+mod resampling;
 
-pub use compression::CompressionOption;
 pub use big_tiff::BigTiffOption;
-pub use resampling::ResamplingOption;
+pub use compression::CompressionOption;
 pub use overviews::OverviewsOption;
+pub use resampling::ResamplingOption;
