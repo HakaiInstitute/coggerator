@@ -29,7 +29,6 @@ jobs:
       - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     test-tauri-windows:
       name: test-tauri-windows
       runs-on: windows-latest
@@ -54,7 +53,6 @@ jobs:
             echo "GDAL_INCLUDE_DIR=$GDAL_HOME/Library/include" >> $GITHUB_ENV
             echo "GDAL_VERSION=3.5.3" >> $GITHUB_ENV
             echo "$GDAL_HOME/Library/bin" >> $GITHUB_PATH
-            
             echo "$GDAL_HOME"
             echo "$GDAL_LIB_DIR"
             echo "$GDAL_INCLUDE_DIR"
