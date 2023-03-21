@@ -22,8 +22,12 @@ jobs:
         with:
           activate-environment: cog
           environment-file: ./environment.yml
-      - name: Update pkg_config_path
-        run: echo "PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$CONDA/envs/cog/lib/pkgconfig/" >> $GITHUB_ENV
+      - name: Update environment
+        shell: bash
+        run: |
+          echo "GDAL_HOME=${CONDA}/envs/cog" >> $GITHUB_ENV
+          echo "GDAL_VERSION=3.5.3" >> $GITHUB_ENV
+          echo "${GDAL_HOME}/bin" >> $GITHUB_PATH
       - name: Install frontend dependencies
         run: yarn install
       - uses: tauri-apps/tauri-action@v0
@@ -48,16 +52,9 @@ jobs:
       - name: Update environment
         shell: bash
         run: |
-          echo "GDAL_HOME=$CONDA/envs/cog" >> $GITHUB_ENV
-          echo "GDAL_LIB_DIR=$GDAL_HOME/Library/lib" >> $GITHUB_ENV
-          echo "GDAL_INCLUDE_DIR=$GDAL_HOME/Library/include" >> $GITHUB_ENV
+          echo "GDAL_HOME=${CONDA}/envs/cog/Library" >> $GITHUB_ENV
           echo "GDAL_VERSION=3.5.3" >> $GITHUB_ENV
-          echo "$GDAL_HOME/Library/bin" >> $GITHUB_PATH
-          echo "$GDAL_HOME"
-          echo "$GDAL_LIB_DIR"
-          echo "$GDAL_INCLUDE_DIR"
-          echo "$GDAL_VERSION"
-          echo "$PATH"
+          echo "${GDAL_HOME}/bin" >> $GITHUB_PATH
       - name: Install frontend dependencies
         run: yarn install
       - uses: tauri-apps/tauri-action@v0
