@@ -2,7 +2,7 @@ name: 'Test'
 on: [ pull_request ]
 
 jobs:
-  test-tauri-ubuntu:
+  ubuntu:
     name: test-tauri-ubuntu
     runs-on: ubuntu-latest
     steps:
@@ -29,37 +29,37 @@ jobs:
       - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    test-tauri-windows:
-      name: test-tauri-windows
-      runs-on: windows-latest
-      steps:
-        - uses: actions/checkout@v3
-        - name: Setup node
-          uses: actions/setup-node@v3
-          with:
-            node-version: 16
-        - name: Install Rust stable
-          uses: dtolnay/rust-toolchain@stable
-        - name: Install GDAL
-          uses: conda-incubator/setup-miniconda@v2
-          with:
-            environment-file: environment.yml
-            auto-activate-base: false
-        - name: Update environment
-          shell: bash
-          run: |
-            echo "GDAL_HOME=$CONDA/envs/cog" >> $GITHUB_ENV
-            echo "GDAL_LIB_DIR=$GDAL_HOME/Library/lib" >> $GITHUB_ENV
-            echo "GDAL_INCLUDE_DIR=$GDAL_HOME/Library/include" >> $GITHUB_ENV
-            echo "GDAL_VERSION=3.5.3" >> $GITHUB_ENV
-            echo "$GDAL_HOME/Library/bin" >> $GITHUB_PATH
-            echo "$GDAL_HOME"
-            echo "$GDAL_LIB_DIR"
-            echo "$GDAL_INCLUDE_DIR"
-            echo "$GDAL_VERSION"
-            echo "$PATH"
-        - name: Install frontend dependencies
-          run: yarn install
-        - uses: tauri-apps/tauri-action@v0
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  windows:
+    name: test-tauri-windows
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+      - name: Install GDAL
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          environment-file: environment.yml
+          auto-activate-base: false
+      - name: Update environment
+        shell: bash
+        run: |
+          echo "GDAL_HOME=$CONDA/envs/cog" >> $GITHUB_ENV
+          echo "GDAL_LIB_DIR=$GDAL_HOME/Library/lib" >> $GITHUB_ENV
+          echo "GDAL_INCLUDE_DIR=$GDAL_HOME/Library/include" >> $GITHUB_ENV
+          echo "GDAL_VERSION=3.5.3" >> $GITHUB_ENV
+          echo "$GDAL_HOME/Library/bin" >> $GITHUB_PATH
+          echo "$GDAL_HOME"
+          echo "$GDAL_LIB_DIR"
+          echo "$GDAL_INCLUDE_DIR"
+          echo "$GDAL_VERSION"
+          echo "$PATH"
+      - name: Install frontend dependencies
+        run: yarn install
+      - uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
