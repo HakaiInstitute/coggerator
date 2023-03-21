@@ -1,14 +1,10 @@
 <script lang="ts">
     import {open, save} from "@tauri-apps/api/dialog"
     import {homeDir, sep} from "@tauri-apps/api/path";
-    import {
-        isPermissionGranted,
-        requestPermission,
-        sendNotification
-    } from '@tauri-apps/api/notification';
+    import {isPermissionGranted, requestPermission, sendNotification} from '@tauri-apps/api/notification';
     import invariant from "tiny-invariant";
 
-    import { onMount } from "svelte";
+    import {onMount} from "svelte";
 
     import FilePicker from "./FilePicker.svelte";
     import Select from "./Select.svelte";
@@ -59,11 +55,10 @@
     ];
 
     $: {
-        if (outputPath === null && inputPath) {
+        if (outputPath === null && inputPath !== null) {
             // If inputPath is defined, and outputPath is not, then append "_cog.tif" to the input path.
-            const inputDir = inputPath.split(sep).slice(0, -1).join(sep);
-            const fname = inputPath.split(sep).pop().split(".").slice(0, -1);
-            outputPath = `${inputDir}${sep}${fname}_cog.tif`
+            const path = inputPath.slice(0, -".tif".length);
+            outputPath = `${path}_cog.tif`
         }
     }
 
@@ -85,9 +80,9 @@
     async function selectOutputHandler() {
         let defaultPath = await homeDir();
         if (outputPath) {
-            defaultPath = outputPath.split("/").slice(0, -1).join("/");
+            defaultPath = outputPath.split(sep).slice(0, -1).join(sep);
         } else if (inputPath) {
-            defaultPath = inputPath.split("/").slice(0, -1).join("/");
+            defaultPath = inputPath.split(sep).slice(0, -1).join(sep);
         }
 
         outputPath = await save({
@@ -99,6 +94,7 @@
 
 
     let permissionGranted: boolean = false;
+
     async function getPermission() {
         permissionGranted = await isPermissionGranted();
         if (!permissionGranted) {
@@ -106,6 +102,7 @@
             permissionGranted = permission === 'granted';
         }
     }
+
     onMount(getPermission);
 
     async function convert() {
@@ -116,10 +113,13 @@
             noDataValue,
             compression,
             bigTiff,
-        });
-        if (permissionGranted) {
-          sendNotification({ title: 'COGGERATOR', body: `Created COG at: ${outputPath}` });
-        }
+        })
+            .then(() => {
+                if (permissionGranted) sendNotification({title: 'SUCCESS', body: `Created COG at: ${outputPath}`});
+            })
+            .catch((err) => {
+                if (permissionGranted) sendNotification({title: 'ERROR', body: `Error: ${err}`});
+            });
         convertInProgress = false;
     }
 </script>
