@@ -1,0 +1,5 @@
+name: cog
+channels:
+  - conda-forge
+dependencies:
+  - gdal=3.5.3

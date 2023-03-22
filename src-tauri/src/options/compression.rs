@@ -40,6 +40,9 @@ impl CompressionOption {
             CompressionOption::None => "NONE",
         };
 
-        gdal::raster::RasterCreationOption { key: "COMPRESS", value }
+        gdal::raster::RasterCreationOption {
+            key: "COMPRESS",
+            value,
+        }
     }
 }

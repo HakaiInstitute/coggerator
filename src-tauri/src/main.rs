@@ -5,7 +5,7 @@
 
 use std::path::PathBuf;
 
-use coggerator::{Args, CoggeratorError, convert_cog};
+use coggerator::{convert_cog, Args, CoggeratorError};
 
 #[tauri::command]
 async fn convert(
@@ -18,7 +18,15 @@ async fn convert(
     overviews: Option<&str>,
 ) -> Result<PathBuf, CoggeratorError> {
     // Append _cog.tif to input_path to make output_path
-    let args = Args::new(input_path, output_path, no_data_value, compression, big_tiff, resampling, overviews)?;
+    let args = Args::new(
+        input_path,
+        output_path,
+        no_data_value,
+        compression,
+        big_tiff,
+        resampling,
+        overviews,
+    )?;
     let created_cog = convert_cog(args)?;
     Ok(created_cog)
 }
