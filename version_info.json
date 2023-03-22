@@ -1,6 +1,6 @@
 {
-  "version": "v0.1.0rc1",
-  "notes": "First version",
+  "version": "v0.1.0",
+  "notes": "Initial release",
   "pub_date": "2023-03-21T20:40:00Z",
   "platforms": {
     "linux-x86_64": {
