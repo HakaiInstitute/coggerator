@@ -45,7 +45,7 @@
     "updater": {
       "active": true,
       "endpoints": [
-        "https://gist.githubusercontent.com/tayden/954a8b2dbb10a8f20b730b817d7baefc/raw/4b2d4d127d2f32e53c76284eb12acc19c5c63b98/coggerator_versions.json"
+        "https://gist.githubusercontent.com/tayden/954a8b2dbb10a8f20b730b817d7baefc/raw/coggerator_versions.json"
       ],
       "dialog": true,
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDY1QjA2MDhEN0I4QTAyOUMKUldTY0FvcDdqV0N3WlhvVWdYMDdBTVhBY3NBbWtwakJDNzdBc1RhOXB4UzNTK2NXdTIvbWNLMjgK"
