@@ -5,11 +5,11 @@
   "platforms": {
     "linux-x86_64": {
       "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTY0FvcDdqV0N3WlNNYUVzN2xHSnJtRjV6STJMeUlRNDZON2dRL1lTalByaFVXTGNIS2x2YmIxcUxXa2JDdjQ4MHUyRisyRTdtQTFKMGZUVmRlNmxvSVllNzJySDVCRmdrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjc5NDk0MDEwCWZpbGU6Y29nZ2VyYXRvcl8wLjEuMF9hbWQ2NC5BcHBJbWFnZS50YXIuZ3oKeWdFTC9IOW5XZ2w5YmFjb1d6SkVVbHRxN0pqRnJ6TitEcEsrdlE4bDdlbGlJWWk1S3ZsdjRPM3Ixb2Y2cERUZ3dwM09rZFU0T0dqYnRTSzZzVnRvQ1E9PQo",
-      "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.0/coggerator_0.1.0_amd64.AppImage.tar.gz"
+      "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.0/coggerator_0.1.0_linux_amd64.AppImage.tar.gz"
     },
     "windows-x86_64": {
-      "signature": "",
-      "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.0/COGGERATOR_0.1.0_x64_en-US.msi.zip"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTY0FvcDdqV0N3WlR4eVZWZ1dtMnQzYjR1VFRwL2ltWjZHMTFXRmp5UVdxbkR0cGlLWEJLTysxQXU0d3BXZTZXRlgyYjdTcmdsMGIveDNMa1RNcW8xb0tqNVRoYXBTMHdZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjc5NDk1ODk4CWZpbGU6Q09HR0VSQVRPUl8wLjEuMF94NjRfZW4tVVMubXNpLnppcAo0Vjcvcmo2SExTVnNqMllhN0RjODA2OFg3eXFwaXJaQzFJRUNZNFN0SXloWTZVMkNrYnhOdUpDOVo3VmJ1bGkrTlpVNlY2czJOTDdoTlo2V2J6QzBCZz09Cg",
+      "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.0/COGGERATOR_0.1.0_windows_x64.msi.zip"
     }
   }
 }
