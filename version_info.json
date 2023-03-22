@@ -1,0 +1,15 @@
+{
+  "version": "v0.1.0rc1",
+  "notes": "First version",
+  "pub_date": "2023-03-21T20:40:00Z",
+  "platforms": {
+    "linux-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTY0FvcDdqV0N3WldlUlZ3ZWlqSXRaYnNRWXAxbGR5VVhBbzdCb0wrT3dlMUhZbU9ucUxpTXNzdFVLNnBwS1ZWa2FBTzU1RUdqWnd5K1hvKy9XbjNRckJNUXg5Y1plSGc0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjc5NDMyMzY4CWZpbGU6Y29nZ2VyYXRvcl8wLjEuMF9hbWQ2NC5BcHBJbWFnZS50YXIuZ3oKTGc0Z3d2MzdBTDF6cTRJTUdUSHN0RlVzZEpNV0NSc1g0T05PYWR4UVZTMmNtYnF4TThxRUdidnFxT3ppa3ZZMFB1QWRnZlpGdkRZcE1Ka0JGNjFzRHc9PQo",
+      "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.0/coggerator_0.1.0_amd64.AppImage.tar.gz"
+    },
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTY0FvcDdqV0N3WlI0UjFRTnlLVTF6NkhLeHNoNEVpZGErTnpEQTVaRVpuTUxKL1dVSTRNS0o2NnZXdUU2SWhmL0NlOGNaaWhmK3VzOTJTOElkcXZtZmx4NTNwTkY5R3dRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjc5NDQ5NDg3CWZpbGU6Q09HR0VSQVRPUl8wLjEuMF94NjRfZW4tVVMubXNpLnppcApFZmlOZENKbHdka2Q3Z1FVcWJ5akpkcHQ1dTBRZWxNdFdwVmhaNk9pSnhVajZycVBwclhuWE9rNUY5ZnA2SGNvNkZ0cTc5UFljNGtYRHAxdnZOZ2JEUT09Cg==",
+      "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.0/COGGERATOR_0.1.0_x64_en-US.msi.zip"
+    }
+  }
+}
