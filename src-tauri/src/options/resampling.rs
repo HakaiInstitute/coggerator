@@ -1,43 +1,44 @@
+use std::str::FromStr;
+
+use strum_macros::{Display, EnumString, IntoStaticStr};
+
 use crate::CoggeratorError;
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, EnumString, IntoStaticStr, Display)]
 pub enum ResamplingOption {
+    #[strum(serialize = "NEAREST")]
     Nearest,
+
+    #[strum(serialize = "AVERAGE")]
     Average,
+
+    #[strum(serialize = "BILINEAR")]
     Bilinear,
+
+    #[strum(serialize = "CUBIC")]
     Cubic,
+
+    #[strum(serialize = "CUBICSPLINE")]
     CubicSpline,
+
+    #[strum(serialize = "LANCZOS")]
     Lanczos,
+
+    #[strum(serialize = "MODE")]
     Mode,
+
+    #[strum(serialize = "RMS")]
     RMS,
 }
 
 impl ResamplingOption {
     pub fn new(s: &str) -> Result<Self, CoggeratorError> {
-        match s {
-            "NEAREST" => Ok(ResamplingOption::Nearest),
-            "AVERAGE" => Ok(ResamplingOption::Average),
-            "BILINEAR" => Ok(ResamplingOption::Bilinear),
-            "CUBIC" => Ok(ResamplingOption::Cubic),
-            "CUBICSPLINE" => Ok(ResamplingOption::CubicSpline),
-            "LANCZOS" => Ok(ResamplingOption::Lanczos),
-            "MODE" => Ok(ResamplingOption::Mode),
-            "RMS" => Ok(ResamplingOption::RMS),
-            _ => Err(CoggeratorError::InvalidResamplingOption(s.to_string())),
-        }
+        ResamplingOption::from_str(s).map_err(|_| CoggeratorError::InvalidResamplingOption(s.to_string()))
     }
 
     pub fn to_creation_option(&self) -> gdal::raster::RasterCreationOption {
-        let value = match self {
-            ResamplingOption::Nearest => "NEAREST",
-            ResamplingOption::Average => "AVERAGE",
-            ResamplingOption::Bilinear => "BILINEAR",
-            ResamplingOption::Cubic => "CUBIC",
-            ResamplingOption::CubicSpline => "CUBICSPLINE",
-            ResamplingOption::Lanczos => "LANCZOS",
-            ResamplingOption::Mode => "MODE",
-            ResamplingOption::RMS => "RMS",
-        };
+        let value: &'static str = self.into();
+
         gdal::raster::RasterCreationOption {
             key: "RESAMPLING",
             value,

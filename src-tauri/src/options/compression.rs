@@ -1,45 +1,46 @@
+use std::str::FromStr;
+
+use strum_macros::{Display, EnumString, IntoStaticStr};
+
 use crate::CoggeratorError;
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, EnumString, IntoStaticStr, Display)]
 pub enum CompressionOption {
+    #[strum(serialize = "ZSTD")]
     ZSTD,
+
+    #[strum(serialize = "LZW")]
     LZW,
+
+    #[strum(serialize = "DEFLATE")]
     Deflate,
+
+    #[strum(serialize = "PACKBITS")]
     Packbits,
+
+    #[strum(serialize = "LZMA")]
     LZMA,
+
+    #[strum(serialize = "LERC")]
     LERC,
+
+    #[strum(serialize = "LERC_DEFLATE")]
     LERCDeflate,
+
+    #[strum(serialize = "LERC_ZSTD")]
     LERCZSTD,
+
+    #[strum(serialize = "NONE")]
     None,
 }
 
 impl CompressionOption {
     pub fn new(s: &str) -> Result<Self, CoggeratorError> {
-        match s {
-            "ZSTD" => Ok(CompressionOption::ZSTD),
-            "LZW" => Ok(CompressionOption::LZW),
-            "DEFLATE" => Ok(CompressionOption::Deflate),
-            "PACKBITS" => Ok(CompressionOption::Packbits),
-            "LZMA" => Ok(CompressionOption::LZMA),
-            "LERC" => Ok(CompressionOption::LERC),
-            "LERC_DEFLATE" => Ok(CompressionOption::LERCDeflate),
-            "LERC_ZSTD" => Ok(CompressionOption::LERCZSTD),
-            "NONE" => Ok(CompressionOption::None),
-            _ => Err(CoggeratorError::InvalidCompressionOption(s.to_string())),
-        }
+        CompressionOption::from_str(s).map_err(|_| CoggeratorError::InvalidCompressionOption(s.to_string()))
     }
+
     pub fn to_creation_option(&self) -> gdal::raster::RasterCreationOption {
-        let value = match self {
-            CompressionOption::ZSTD => "ZSTD",
-            CompressionOption::LZW => "LZW",
-            CompressionOption::Deflate => "DEFLATE",
-            CompressionOption::Packbits => "PACKBITS",
-            CompressionOption::LZMA => "LZMA",
-            CompressionOption::LERC => "LERC",
-            CompressionOption::LERCDeflate => "LERC_DEFLATE",
-            CompressionOption::LERCZSTD => "LERC_ZSTD",
-            CompressionOption::None => "NONE",
-        };
+        let value: &'static str = self.into();
 
         gdal::raster::RasterCreationOption {
             key: "COMPRESS",
@@ -47,7 +48,6 @@ impl CompressionOption {
         }
     }
 }
-
 
 #[cfg(test)]
 mod tests {
