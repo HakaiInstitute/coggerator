@@ -1,6 +1,6 @@
 [package]
 name = "coggerator"
-version = "0.1.0"
+version = "0.1.1"
 description = "Cloud Optimize your GeoTIFF files"
 authors = ["Taylor Denouden <taylor.denouden@hakai.org>"]
 license = "MIT"
