@@ -113,6 +113,8 @@
             noDataValue,
             compression,
             bigTiff,
+            resampling,
+            overviews
         })
             .then(() => {
                 if (permissionGranted) sendNotification({title: 'SUCCESS', body: `Created COG at: ${outputPath}`});
