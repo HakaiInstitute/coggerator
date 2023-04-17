@@ -51,13 +51,13 @@ impl Args {
         }
 
         let compression = match compression {
-            Some(c) => options::CompressionOption::new(c),
-            None => Ok(options::CompressionOption::LZW),
+            Some(c) => CompressionOption::new(c),
+            None => Ok(CompressionOption::LZW),
         }?;
 
         let big_tiff = match big_tiff {
-            Some(b) => options::BigTiffOption::new(b),
-            None => Ok(options::BigTiffOption::IfNeeded),
+            Some(b) => BigTiffOption::new(b),
+            None => Ok(BigTiffOption::IfSafer),
         }?;
 
         let resampling = match resampling {

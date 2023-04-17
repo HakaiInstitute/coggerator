@@ -46,12 +46,12 @@
         ["Force Use Existing", "FORCE_USE_EXISTING"],
         ["None", "NONE"],
     ];
-    let bigTiff: string = "IfSafer";
+    let bigTiff: string = "IF_SAFER";
     const bigTiffOptions = [
         ["Yes", "YES"],
         ["No", "NO"],
-        ["If Safer", "IfSafer"],
-        ["If Needed", "IfNeeded"]
+        ["If Safer", "IF_SAFER"],
+        ["If Needed", "IF_NEEDED"]
     ];
 
     $: {

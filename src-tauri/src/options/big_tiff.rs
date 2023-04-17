@@ -13,8 +13,8 @@ impl BigTiffOption {
         match s {
             "YES" => Ok(BigTiffOption::Yes),
             "NO" => Ok(BigTiffOption::No),
-            "IfNeeded" => Ok(BigTiffOption::IfNeeded),
-            "IfSafer" => Ok(BigTiffOption::IfSafer),
+            "IF_NEEDED" => Ok(BigTiffOption::IfNeeded),
+            "IF_SAFER" => Ok(BigTiffOption::IfSafer),
             _ => Err(CoggeratorError::InvalidBigTiffOption(s.to_string())),
         }
     }
@@ -23,11 +23,11 @@ impl BigTiffOption {
         let value = match self {
             BigTiffOption::Yes => "YES",
             BigTiffOption::No => "NO",
-            BigTiffOption::IfNeeded => "IfNeeded",
-            BigTiffOption::IfSafer => "IfSafer",
+            BigTiffOption::IfNeeded => "IF_NEEDED",
+            BigTiffOption::IfSafer => "IF_SAFER",
         };
         gdal::raster::RasterCreationOption {
-            key: "COMPRESS",
+            key: "BIGTIFF",
             value,
         }
     }
