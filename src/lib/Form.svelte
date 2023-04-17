@@ -12,7 +12,7 @@
 
     let inputPath: string | null = null;
     let outputPath: string | null = null;
-    let noDataValue: number | null = null;
+    let noDataValue: number | null = 0;
     let compression: string = "DEFLATE";
     const compressionOptions = [
         // TODO: Support all options
