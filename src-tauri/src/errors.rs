@@ -1,6 +1,7 @@
 use gdal::errors::GdalError;
+use thiserror::Error;
 
-#[derive(Debug, thiserror::Error)]
+#[derive(Error, Debug)]
 pub enum CoggeratorError {
     #[error("Path error: {0}")]
     PathError(String),

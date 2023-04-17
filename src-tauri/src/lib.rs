@@ -115,16 +115,3 @@ pub fn convert_cog(args: Args) -> Result<PathBuf, CoggeratorError> {
 
     Ok(args.output_path)
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    // #[test]
-    // fn test_args_from_input_path() {
-    //     let input_path = PathBuf::from("/some/dir/test.tif");
-    //     let args = Args::from_input_path(input_path).unwrap();
-    //     assert_eq!(args.input_path, PathBuf::from("/some/dir/test.tif"));
-    //     assert_eq!(args.output_path, PathBuf::from("/some/dir/test_cog.tif"));
-    // }
-}

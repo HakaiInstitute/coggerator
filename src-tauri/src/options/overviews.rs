@@ -1,5 +1,6 @@
 use crate::errors::CoggeratorError;
 
+#[derive(Debug, PartialEq)]
 pub enum OverviewsOption {
     Auto,
     IgnoreExisting,
@@ -29,5 +30,29 @@ impl OverviewsOption {
             key: "OVERVIEWS",
             value,
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_overviews_options() {
+        let options = vec!["AUTO", "IGNORE_EXISTING", "FORCE_USE_EXISTING", "NONE"];
+
+        options.iter().for_each(|option| {
+            let overviews_option = OverviewsOption::new(option).unwrap();
+            assert_eq!(overviews_option.to_creation_option().key, "OVERVIEWS");
+            assert_eq!(overviews_option.to_creation_option().value, *option);
+        });
+    }
+
+    #[test]
+    fn test_overviews_invalid() {
+        // Test that value throws an error
+        assert!(OverviewsOption::new("INVALID").is_err());
+        let e = OverviewsOption::new("INVALID").unwrap_err();
+        assert_eq!(e.to_string(), "INVALID is not a valid OVERVIEWS option");
     }
 }

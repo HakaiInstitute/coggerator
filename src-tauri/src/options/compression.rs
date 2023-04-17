@@ -1,5 +1,6 @@
 use crate::CoggeratorError;
 
+#[derive(Debug, PartialEq)]
 pub enum CompressionOption {
     ZSTD,
     LZW,
@@ -44,5 +45,30 @@ impl CompressionOption {
             key: "COMPRESS",
             value,
         }
+    }
+}
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_compression_options() {
+        let options = vec!["ZSTD", "LZW", "DEFLATE", "PACKBITS", "LZMA", "LERC", "LERC_DEFLATE", "LERC_ZSTD", "NONE"];
+
+        options.iter().for_each(|option| {
+            let compression_option = CompressionOption::new(option).unwrap();
+            assert_eq!(compression_option.to_creation_option().key, "COMPRESS");
+            assert_eq!(compression_option.to_creation_option().value, *option);
+        });
+    }
+
+    #[test]
+    fn test_compression_options_invalid() {
+        // Test that value throws an error
+        assert!(CompressionOption::new("INVALID").is_err());
+        let e = CompressionOption::new("INVALID").unwrap_err();
+        assert_eq!(e.to_string(), "INVALID is not a valid COMPRESSION option");
     }
 }
