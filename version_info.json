@@ -1,15 +1,15 @@
 {
-  "version": "v0.1.1",
-  "notes": "Bug fixes for options",
-  "pub_date": "2023-04-17T20:07:55Z",
+  "version": "v0.1.2",
+  "notes": "Fix nodata causing invalid COGs",
+  "pub_date": "2023-04-18T03:56:00Z",
   "platforms": {
     "linux-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTY0FvcDdqV0N3WlJ0Nmw4enM1bUlzVjVjaUFVbkY3dmNHOXk0ZWthY2diUHlCTjhxZDNLeDJmeFo2OW01ZGE0NnFHWHlSYkhhV0pZRUx0MytLTHRsSmZEYWVUWnp5UXdNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjgxNzU5NDMxCWZpbGU6Y29nZ2VyYXRvcl8wLjEuMV9hbWQ2NC5BcHBJbWFnZS50YXIuZ3oKK3R6UVk1dnZmYW5EcExnbk5wc3pWODYxaXBaNldLbDVsa3NnTVpqZENjcmQrTWZJeVcyTE9kcEhmZjZXTkRQR1ZaWTVoOVRVV0N0SElZeXJWWURxQ3c9PQo=",
-      "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.1/coggerator_0.1.1_linux_amd64.AppImage.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTY0FvcDdqV0N3WlQrUVlBYjUxQlV0ZHFDaDRoUm9nUURnaE9WQTZjYldSUm54cm9iWUd3elpvZmN0TE1PVHdEd0Z6MTA2a01NdFEzOTFHNTQ2cXJnNnlKSW41UENvcGdVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjgxNzkxMDU2CWZpbGU6Y29nZ2VyYXRvcl8wLjEuMl9hbWQ2NC5BcHBJbWFnZS50YXIuZ3oKbmd6TStUT3UzZEVTMGJ2QXB1azg0N2J2aWxKTlBYMlFLOHJjRWF5R1ljeU1pRDFDR3BpQUdpSnluZWsyTHVEbnZ4MkNFTW01MkZseWNjV0JCZHZXQlE9PQo=",
+      "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.2/coggerator_0.1.2_linux_amd64.AppImage.tar.gz"
     },
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTY0FvcDdqV0N3WllEbnhhREt1ekRwZFFpK1NRempya0lRUEJuUUVXV1NDM3A3R0crMHdYaHprU1NvL2VoVVVEaXJqSndCMTBHWUE1ZDkxK0lIRUN5eVdHNVNFcktpTkFRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjgxNzYyMDQ2CWZpbGU6Q09HR0VSQVRPUl8wLjEuMV94NjRfZW4tVVMubXNpLnppcAp5dU84Zm8yNGdMWW8yZmhCazdjbUhPdDdNSzNvTDVrUGtrUXNyU2RMR2UvZTNDRm04blJBbU9MdW42QzNBZHA5UTJ6NHA1U2tiT2pxTTA3SDJ3R0dDUT09Cg==",
-      "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.1/COGGERATOR_0.1.1_windows_x64.msi.zip"
+      "signature": "",
+      "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.2/COGGERATOR_0.1.2_windows_x64.msi.zip"
     }
   }
 }
