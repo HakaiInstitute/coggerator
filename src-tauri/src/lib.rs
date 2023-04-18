@@ -85,8 +85,9 @@ impl Args {
 pub fn convert_cog(args: Args) -> Result<PathBuf, CoggeratorError> {
     let dset = gdal::Dataset::open(args.input_path)?;
 
-    // driver
-    let driver = gdal::DriverManager::get_driver_by_name("COG")?;
+    // drivers
+    let cog_driver = gdal::DriverManager::get_driver_by_name("COG")?;
+    let vrt_driver = gdal::DriverManager::get_driver_by_name("VRT")?;
 
     // options
     let options = [
@@ -104,14 +105,18 @@ pub fn convert_cog(args: Args) -> Result<PathBuf, CoggeratorError> {
         args.overviews.to_creation_option(),
     ];
 
-    let cog: gdal::Dataset = dset.create_copy(&driver, &args.output_path, &options)?;
+    // Set nodata value on a VRTe
+    let tmp_file = tempfile::NamedTempFile::new()?;
+    let vrt = dset.create_copy(&vrt_driver, tmp_file.path(), &options)?;
 
-    // Set nodata value
-    let num_bands = cog.raster_count();
+    let num_bands = vrt.raster_count();
     for i in 1..=num_bands {
-        let mut band = cog.rasterband(i)?;
+        let mut band = vrt.rasterband(i)?;
         band.set_no_data_value(args.no_data_value)?;
     }
+
+    // Create COG
+    vrt.create_copy(&cog_driver, &args.output_path, &options)?;
 
     Ok(args.output_path)
 }
