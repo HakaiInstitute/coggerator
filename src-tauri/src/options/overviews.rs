@@ -26,11 +26,7 @@ impl OverviewsOption {
 
     pub fn to_creation_option(&self) -> gdal::raster::RasterCreationOption {
         let value: &'static str = self.into();
-
-        gdal::raster::RasterCreationOption {
-            key: "OVERVIEWS",
-            value,
-        }
+        gdal::raster::RasterCreationOption { key: "OVERVIEWS", value }
     }
 }
 
