@@ -54,14 +54,6 @@
         ["If Needed", "IF_NEEDED"]
     ];
 
-    $: {
-        if (outputPath === null && inputPath !== null) {
-            // If inputPath is defined, and outputPath is not, then append "_cog.tif" to the input path.
-            const path = inputPath.slice(0, -".tif".length);
-            outputPath = `${path}_cog.tif`
-        }
-    }
-
     let convertInProgress = false;
     let disableConvert: boolean;
     $: disableConvert = convertInProgress || !inputPath;
@@ -75,6 +67,10 @@
         });
         invariant(!Array.isArray(result), "Multi-select not currently supported.");
         inputPath = result;
+
+        // Update output path
+        const path = inputPath.slice(0, -".tif".length);
+        outputPath = `${path}_cog.tif`
     }
 
     async function selectOutputHandler() {
