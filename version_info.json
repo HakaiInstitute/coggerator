@@ -1,15 +1,15 @@
 {
-  "version": "v0.1.2",
-  "notes": "Fix nodata causing invalid COGs",
-  "pub_date": "2023-04-18T03:56:00Z",
+  "version": "v0.1.3",
+  "notes": "Minor improvements and dependency updates",
+  "pub_date": "2023-07-17T010:00:00Z",
   "platforms": {
     "linux-x86_64": {
       "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTY0FvcDdqV0N3WlQrUVlBYjUxQlV0ZHFDaDRoUm9nUURnaE9WQTZjYldSUm54cm9iWUd3elpvZmN0TE1PVHdEd0Z6MTA2a01NdFEzOTFHNTQ2cXJnNnlKSW41UENvcGdVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjgxNzkxMDU2CWZpbGU6Y29nZ2VyYXRvcl8wLjEuMl9hbWQ2NC5BcHBJbWFnZS50YXIuZ3oKbmd6TStUT3UzZEVTMGJ2QXB1azg0N2J2aWxKTlBYMlFLOHJjRWF5R1ljeU1pRDFDR3BpQUdpSnluZWsyTHVEbnZ4MkNFTW01MkZseWNjV0JCZHZXQlE9PQo=",
-      "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.2/coggerator_0.1.2_linux_amd64.AppImage.tar.gz"
+      "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.3/coggerator_0.1.3_linux_amd64.AppImage.tar.gz"
     },
     "windows-x86_64": {
       "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTY0FvcDdqV0N3WmV2dzZmemRCQnRaSlorblhTdXJ0eXFvSWp2bC9KNDl2N0llRHNpQVJFZUpNcSt1K1k1TDQvMDhkaVl1Uko5U0VwajF1TlJnVUtQbnJpaWZIY08xYXdjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjgxODMyMjg4CWZpbGU6Q09HR0VSQVRPUl8wLjEuMl94NjRfZW4tVVMubXNpLnppcAoreHJOaUVXUzF2bWt4dGdTRWNhek1KRURKL2Zjemh1TzBaa3ZEczlZR0paWGw5Z1dROUNXdnkrNnJzdmFpRGRoN1hSMnBGd3RyUTRyWUFzUndzUU5Ddz09Cg==",
-      "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.2/COGGERATOR_0.1.2_windows_x64.msi.zip"
+      "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.3/COGGERATOR_0.1.3_windows_x64.msi.zip"
     }
   }
 }
