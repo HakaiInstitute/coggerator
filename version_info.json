@@ -8,8 +8,8 @@
       "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.3/coggerator_0.1.3_linux_amd64.AppImage.tar.gz"
     },
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTY0FvcDdqV0N3WmJ3Z0puZGVlL3pyaHlRN1FQdWIySTdQaDBFMEVVdllNMEcyM1c4ZnF6T2JyZXpDcnlJWDFRRWdOdTdpRWdMa09EOGd5ekNiVjBKdFVqaUJ2Ump6aWd3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjg5NjEzNTk4CWZpbGU6Q09HR0VSQVRPUl8wLjEuM194NjQtc2V0dXAubnNpcy56aXAKYS9jQmdNOXBkVnR0WnF2NzZKQ0cxU2JFbkNUQ1J4RW1nb3pQa1ZWTWhqTmdFeStVQnN1cE9hT2NjbytVOU1NTmdWOVk5cDM0Q0VabGNBVGRVaVhXQmc9PQo=",
-      "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.3/COGGERATOR_0.1.3_windows_x64-setup.nsis.zip"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTY0FvcDdqV0N3WmRVQ1ZuVlZNRmIvdExCSC9yZ2R3dkZvNTVadklmSU9VekpueTJqV0pMZE9DU1drSkJtZ3NXNFNyUWdkZmZaUDllRzh6ZTlNNnhRNGpPeDUzUlNkelFzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjg5NjEzNTk3CWZpbGU6Q09HR0VSQVRPUl8wLjEuM194NjRfZW4tVVMubXNpLnppcAoydFhkVk9ZUWxKRTNqVmhUK1ZObllXTVh1YXNESWczSi9DSTRFeFpZYS84ZXluNGJkSjE4WXFGaXhQd2kwei9HVEUwbnFFTE9oeFZCdngzeEM3aGtEUT09Cg==",
+      "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.3/COGGERATOR_0.1.3_windows_x64.msi.zip"
     }
   }
 }
