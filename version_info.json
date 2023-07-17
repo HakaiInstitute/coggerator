@@ -1,10 +1,10 @@
 {
   "version": "v0.1.3",
   "notes": "Minor improvements and dependency updates",
-  "pub_date": "2023-07-17T010:00:00Z",
+  "pub_date": "2023-07-17T012:00:00Z",
   "platforms": {
     "linux-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTY0FvcDdqV0N3WlQrUVlBYjUxQlV0ZHFDaDRoUm9nUURnaE9WQTZjYldSUm54cm9iWUd3elpvZmN0TE1PVHdEd0Z6MTA2a01NdFEzOTFHNTQ2cXJnNnlKSW41UENvcGdVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjgxNzkxMDU2CWZpbGU6Y29nZ2VyYXRvcl8wLjEuMl9hbWQ2NC5BcHBJbWFnZS50YXIuZ3oKbmd6TStUT3UzZEVTMGJ2QXB1azg0N2J2aWxKTlBYMlFLOHJjRWF5R1ljeU1pRDFDR3BpQUdpSnluZWsyTHVEbnZ4MkNFTW01MkZseWNjV0JCZHZXQlE9PQo=",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTY0FvcDdqV0N3WllQejBUKytLcDZTWlFNM3JXSGdzblAyZEFSZjNCekowM1EzcmpKN0ttMlhaajdHaDVNQjNvZnNVU3ZpaDI0Z0JZSTR0Tm92blBjZUVja24vRUJucmdVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjg5NjMyMjk1CWZpbGU6Y29nZ2VyYXRvcl8wLjEuM19hbWQ2NC5BcHBJbWFnZS50YXIuZ3oKcVEyRVRmRG5GZmIrNnluOVBZdkxmYVo1YlV1VE9lN21UejI0bHZGamxiQUpXbTl0ZGEwQjVxd0JOYkRFamNzV2RFVHJUYjdGbDVQano5SHc0MnpQQlE9PQo=",
       "url": "https://github.com/HakaiInstitute/coggerator/releases/download/v0.1.3/coggerator_0.1.3_linux_amd64.AppImage.tar.gz"
     },
     "windows-x86_64": {
